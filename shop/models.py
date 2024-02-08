@@ -37,9 +37,7 @@ class Ad(models.Model):
     price = models.FloatField(max_length=155)
     currency = models.CharField(max_length=3, choices=[('som', 'SOM'), ('usd', 'USD'), ('rub', 'RUB')], default='som')
     vip_type = models.CharField(max_length=10, choices=[('normal', 'Normal'), ('vip', 'VIP')], default='normal')
-    state = models.CharField(max_length=10,
-                             choices=[('active', 'Active'), ('inactive', 'Inactive'), ('moderation', 'Moderation')],
-                             default='active')
+    state = models.CharField(max_length=10, choices=[('active', 'Active'), ('inactive', 'Inactive'), ('moderation', 'Moderation')], default='active')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="ads")
     images = models.BinaryField(null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
